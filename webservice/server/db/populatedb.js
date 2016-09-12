@@ -86,6 +86,21 @@ var tripsArray = [
 		outTimestamp: '2016-09-04T08:15:00',
 		outLatitude: '-25.432964',
 		outLongitude: '-49.276430'
+	}),
+	new Trip({
+		userId: '002',
+		vehicleId: 'BC003',
+		fare: 3.70,
+		balance: 10.00,
+		distance: 3,
+		inOdometerMeasure: 23456,
+		inTimestamp: '2016-09-05T08:00:00',
+		inLatitude: '-25.408451',
+		inLongitude: '-49.276289',
+		outOdometerMeasure: 23459,
+		outTimestamp: '2016-09-05T08:16:00',
+		outLatitude: '-25.432965',
+		outLongitude: '-49.276431'
 	})
 ];
 

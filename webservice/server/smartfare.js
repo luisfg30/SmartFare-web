@@ -6,9 +6,9 @@
 var express = require('express');					// Express.js
 var mongoose = require('mongoose');					// mongoose (MongoDB driver)
 var bodyparser = require('body-parser');			// body-parser (parse HTTP request body)
-var tripSchema = require('./schemas/trip');
-var userSchema = require('./schemas/user');
-var vehicleSchema = require('./schemas/vehicle');
+var tripSchema = require('./db/schemas/trip');
+var userSchema = require('./db/schemas/user');
+var vehicleSchema = require('./db/schemas/vehicle');
 
 // Connects mongoose to mongodb service
 mongoose.connect('mongodb://localhost:27017/test');
@@ -27,21 +27,20 @@ module.exports = function() {
 	// Makes app able to use the body-parser module functionality
 	app.use(bodyparser.json());
 
-	/*
-	// REQUEST HANDLER: Search flight
-	app.get('/search/flight', function(req, res) {
+	// REQUEST HANDLER: Return trips
+	app.get('/trips', function(req, res) {
 
 		// Creates mongodb query based on request parameters (located on query string)
-		var departFlightQuery = {
+		/*var departFlightQuery = {
 			origin: req.query.origin,
 			destination: req.query.destination,
 			departureDate: req.query.departureDate,
 			availableSeats: { $gte: req.query.numberOfPassengers }
-		}
+		}*/
 
-		// Query the flight database and executes callback function passed
+		// Query the trip database and executes callback function passed
 		// as parameter to send response after the query has been completed
-		Flight.find(departFlightQuery, function(error, docs) {
+		Trip.find({}, function(error, docs) {
 			if (error) {
 				console.log(error);
 			}
@@ -52,18 +51,20 @@ module.exports = function() {
 		});
 	});
 
-	// REQUEST HANDLER: Search hotel
-	app.get('/search/hotel', function(req, res) {
+	// REQUEST HANDLER: Return trips
+	app.get('/vehicles', function(req, res) {
 
 		// Creates mongodb query based on request parameters (located on query string)
-		var hotelQuery = {
-			city: req.query.city,
-			availableRooms: { $gte: req.query.numberOfGuests }
-		}
-		
-		// Query the hotel database and executes callback function passed
+		/*var departFlightQuery = {
+			origin: req.query.origin,
+			destination: req.query.destination,
+			departureDate: req.query.departureDate,
+			availableSeats: { $gte: req.query.numberOfPassengers }
+		}*/
+
+		// Query the trip database and executes callback function passed
 		// as parameter to send response after the query has been completed
-		Hotel.find(hotelQuery, function(error, docs) {
+		Vehicle.find({}, function(error, docs) {
 			if (error) {
 				console.log(error);
 			}
@@ -73,7 +74,30 @@ module.exports = function() {
 			res.send(searchResults);
 		});
 	});
-	*/
+
+	// REQUEST HANDLER: Return trips
+	app.get('/users', function(req, res) {
+
+		// Creates mongodb query based on request parameters (located on query string)
+		/*var departFlightQuery = {
+			origin: req.query.origin,
+			destination: req.query.destination,
+			departureDate: req.query.departureDate,
+			availableSeats: { $gte: req.query.numberOfPassengers }
+		}*/
+
+		// Query the trip database and executes callback function passed
+		// as parameter to send response after the query has been completed
+		User.find({}, function(error, docs) {
+			if (error) {
+				console.log(error);
+			}
+
+			// Gets query results and send response in a JSON format
+			var searchResults = require('util').inspect(docs);
+			res.send(searchResults);
+		});
+	});
 
 	// REQUEST HANDLER: Update database
 	app.post('/update', function(req, res) {
