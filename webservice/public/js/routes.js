@@ -3,9 +3,11 @@ var smartfare = angular.module('SmartFare', ['ng', 'ngRoute']);
 smartfare.config(function($routeProvider) {
     $routeProvider.
         when('/admin/trips', {
-        	template: '';
+        	templateUrl: 'views/tripsView.html',
+            controller: 'tripsTableController'
         }).
         when('/admin/vehicles', {
-        	template: '';
+        	templateUrl: 'views/vehiclesView.html',
+            controller: 'vehiclesTableController'
         });
 });

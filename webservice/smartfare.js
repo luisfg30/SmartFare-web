@@ -30,7 +30,7 @@ module.exports = function() {
 app.use(express.static(__dirname + '/public'));
 
 	// REQUEST HANDLER: Return trips
-	app.get('/trips', function(req, res) {
+	app.get('/api/trips', function(req, res) {
 
 		// Creates mongodb query based on request parameters (located on query string)
 		/*var departFlightQuery = {
@@ -53,7 +53,7 @@ app.use(express.static(__dirname + '/public'));
 	});
 
 	// REQUEST HANDLER: Return trips
-	app.get('/vehicles', function(req, res) {
+	app.get('/api/vehicles', function(req, res) {
 
 		// Creates mongodb query based on request parameters (located on query string)
 		/*var departFlightQuery = {
@@ -72,12 +72,12 @@ app.use(express.static(__dirname + '/public'));
 
 			// Gets query results and send response in a JSON format
 			var searchResults = require('util').inspect(docs);//JSON.stringify(
-			res.send(searchResults);
+			res.send(docs);
 		});
 	});
 
 	// REQUEST HANDLER: Return trips
-	app.get('/users', function(req, res) {
+	app.get('/api/users', function(req, res) {
 
 		// Creates mongodb query based on request parameters (located on query string)
 		/*var departFlightQuery = {
@@ -96,12 +96,12 @@ app.use(express.static(__dirname + '/public'));
 
 			// Gets query results and send response in a JSON format
 			var searchResults = require('util').inspect(docs);
-			res.send(searchResults);
+			res.send(docs);
 		});
 	});
 
 	// REQUEST HANDLER: Update database
-	app.post('/update', function(req, res) {
+	app.post('/api/update', function(req, res) {
 		console.log('REQUEST BODY: ');
 		console.log(req.body);
 
@@ -127,26 +127,45 @@ app.use(express.static(__dirname + '/public'));
 				res.send('error');
 			} else {
 				res.send('ok');
+				console.log('Saved trip!');
+				//res.send("ok");
 			}
 		});
 
 		// Queries for user to be updated
-		User.findOne( { userId: req.body.userId }, function(error, doc) {
+		User.findOne( { uid: req.body.userId }, function(error, doc) {
 			if (error) {
 				console.log(error);
-				res.send("User doesn't exist");
+				//res.send("User doesn't exist");
 			} else {
+				console.log(doc);
 				doc.balance = req.body.balance; // Or -= req.body.fare
 				doc.save();
-				res.send("ok");
+				console.log('Saved new balance!');
+				//res.send("ok");
 			}
 
 		});	
 
 	});
 
-	app.get('*', function(req, res) {
+	/* =====================FRONT END ROUTES=====================*/
+
+	// Index page
+	app.get('/', function(req, res) {
         res.sendFile('/public/index.html'); // load our public/index.html file
+    });
+
+    app.get('/admin/trips', function(req, res) {
+        res.sendFile(__dirname + '/public/views/tripsView.html');
+    });
+
+    app.get('/admin/users', function(req, res) {
+        res.sendFile(__dirname + '/public/views/usersView.html');
+    });
+
+    app.get('/admin/vehicles', function(req, res) {
+        res.sendFile(__dirname + '/public/views/vehiclesView.html');
     });
 
 	return app;
