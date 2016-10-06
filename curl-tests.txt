@@ -1,0 +1,6 @@
+====================POST to /api/update====================
+curl -H "Content-Type: application/json" -X POST -d '{"userId": 002,"vehicleId": "BC018","fare": 3.70,"balance": 11.30,"distance": 4,"inOdometerMeasure": 76432,"inTimestamp": "2016-10-03T08:10:00","inLatitude": "-25.408451","inLongitude": "-49.276289","outOdometerMeasure": 76436,"outTimestamp": "2016-10-03T08:27:00","outLatitude": "-25.432964","outLongitude": "-49.276430"}' http://localhost:3000/api/update
+
+
+====================SAMPLE TRIP======================
+{"userId": 002,"vehicleId": "BC018","fare": 3.70,"balance": 11.30,"distance": 4,"inOdometerMeasure": 76432,"inTimestamp": "2016-10-03T08:10:00","inLatitude": "-25.408451","inLongitude": "-49.276289","outOdometerMeasure": 76436,"outTimestamp": "2016-10-03T08:27:00","outLatitude": "-25.432964","outLongitude": "-49.276430"}
