@@ -11,7 +11,7 @@ var userSchema = require('./db/schemas/user');
 var vehicleSchema = require('./db/schemas/vehicle');
 
 // Connects mongoose to mongodb service
-mongoose.connect('mongodb://localhost:27017/test');
+mongoose.connect(PROD_MONGODB);
 
 // Creates mongoose models for each schema
 // Parameters are: model name, schema, collection name
