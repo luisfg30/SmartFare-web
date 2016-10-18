@@ -17,7 +17,7 @@ mongoose.connect('mongodb://smartfare:5m4r7f4r3@ds053216.mlab.com:53216/smartfar
 // Parameters are: model name, schema, collection name
 var Trip = mongoose.model('Trip', tripSchema, 'trips');
 var User = mongoose.model('User', userSchema, 'users');
-var Vehicle = mongoose.model('Vehicle', vehicleSchema, 'vehicle');
+var Vehicle = mongoose.model('Vehicle', vehicleSchema, 'vehicles');
 
 // Export API methods
 module.exports = function() {
