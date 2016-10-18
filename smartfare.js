@@ -11,7 +11,7 @@ var userSchema = require('./db/schemas/user');
 var vehicleSchema = require('./db/schemas/vehicle');
 
 // Connects mongoose to mongodb service
-mongoose.connect('mongodb://daiogo:5m4r7f4r3@ds053216.mlab.com:53216/smartfare');
+mongoose.connect('mongodb://smartfare:5m4r7f4r3@ds053216.mlab.com:53216/smartfare');
 
 // Creates mongoose models for each schema
 // Parameters are: model name, schema, collection name
