@@ -38,22 +38,28 @@
         <ul class="sidebar-nav">
             <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
             <li class="sidebar-brand">
-                <a href="#top" onclick=$("#menu-close").click();>Start Bootstrap</a>
+                <a href="#top" onclick=$("#menu-close").click();>SmartFare</a>
             </li>
             <li>
                 <a href="#top" onclick=$("#menu-close").click();>Home</a>
             </li>
+            <!--<li>
+                <a href="#about" onclick=$("#menu-close").click();>Usuário</a>
+            </li>-->
             <li>
-                <a href="#about" onclick=$("#menu-close").click();>User</a>
+                <a href="/admin/trips" onclick=$("#menu-close").click();>Painel de Controle</a>
             </li>
             <li>
-                <a href="#services" onclick=$("#menu-close").click();>Admin</a>
+                <a href="#services" onclick=$("#menu-close").click();>Serviços</a>
             </li>
             <li>
-                <a href="#portfolio" onclick=$("#menu-close").click();>About</a>
+                <a href="#data" onclick=$("#menu-close").click();>Dados</a>
             </li>
             <li>
-                <a href="#contact" onclick=$("#menu-close").click();>Contact</a>
+                <a href="#team" onclick=$("#menu-close").click();>Time</a>
+            </li>
+            <li>
+                <a href="#contact" onclick=$("#menu-close").click();>Contato</a>
             </li>
         </ul>
     </nav>
@@ -61,11 +67,11 @@
     <!-- Header -->
     <header id="top" class="header">
         <div class="text-vertical-center">
-            <h1>SmartFare</h1>
-            <h3>Uma solução para cidades inteligentes</h3>
+            <img id="logo" src="img/logoblue.png">
+            <h3 id="slogan">Uma solução para cidades inteligentes</h3>
             <br>
-            <a href="./client" class="btn btn-dark btn-lg">Sou cliente</a>
-            <a href="./admin/trips" class="btn btn-dark btn-lg">Sou administrador</a>
+            <!--<a href="./client" class="btn btn-dark btn-lg">Sou cliente</a>
+            <a href="./admin/trips" class="btn btn-dark btn-lg">Sou administrador</a>-->
         </div>
     </header>
 
@@ -74,8 +80,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2>Stylish Portfolio is the perfect theme for your next project!</h2>
-                    <p class="lead">This theme features some wonderful photography courtesy of <a target="_blank" href="http://join.deathtothestockphoto.com/">Death to the Stock Photo</a>.</p>
+                    <h2>SmartFare é a solução para a gestão do transporte público na sua cidade.</h2>
+                    <p class="lead">Fornecemos acesso a dados reais e relevantes em tempo real.</p>
                 </div>
             </div>
             <!-- /.row -->
@@ -84,14 +90,37 @@
     </section>
 
     <!-- Services -->
-    <!-- The circle icons use Font Awesome's stacked icon classes. For more information, visit http://fontawesome.io/examples/ -->
     <section id="services" class="services bg-primary">
         <div class="container">
             <div class="row text-center">
                 <div class="col-lg-10 col-lg-offset-1">
-                    <h2>Our Services</h2>
-                    <hr class="small">
+                    <h2>Nossos serviços</h2>
+                    <hr class="medium">
                     <div class="row">
+                        <div class="col-md-3 col-sm-6">
+                            <div class="service-item">
+                                <span class="fa-stack fa-4x">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-credit-card fa-stack-1x text-primary"></i>
+                            </span>
+                                <h4>
+                                    <strong>Sistema de bilhetagem eletrônica</strong>
+                                </h4>
+                                <p>Permite o usuário a compra online de créditos para utilizar o seu cartão transporte.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="service-item">
+                                <span class="fa-stack fa-4x">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-bus fa-stack-1x text-primary"></i>
+                            </span>
+                                <h4>
+                                    <strong>Sistema embarcado no veículo</strong>
+                                </h4>
+                                <p>Sensores e leitores de cartão transporte são instalados nas portas de entrada e saída dos ônibus.</p>
+                            </div>
+                        </div>
                         <div class="col-md-3 col-sm-6">
                             <div class="service-item">
                                 <span class="fa-stack fa-4x">
@@ -99,49 +128,21 @@
                                 <i class="fa fa-cloud fa-stack-1x text-primary"></i>
                             </span>
                                 <h4>
-                                    <strong>Service Name</strong>
+                                    <strong>Conectividade com a nuvem</strong>
                                 </h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                                <a href="#" class="btn btn-light">Learn More</a>
+                                <p>Todos os ônibus de sua cidade serão conectados com a internet através da rede de telefonia móvel.</p>
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-6">
                             <div class="service-item">
                                 <span class="fa-stack fa-4x">
                                 <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-compass fa-stack-1x text-primary"></i>
+                                <i class="fa fa-database fa-stack-1x text-primary"></i>
                             </span>
                                 <h4>
-                                    <strong>Service Name</strong>
+                                    <strong>Banco de dados</strong>
                                 </h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                                <a href="#" class="btn btn-light">Learn More</a>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6">
-                            <div class="service-item">
-                                <span class="fa-stack fa-4x">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-flask fa-stack-1x text-primary"></i>
-                            </span>
-                                <h4>
-                                    <strong>Service Name</strong>
-                                </h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                                <a href="#" class="btn btn-light">Learn More</a>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6">
-                            <div class="service-item">
-                                <span class="fa-stack fa-4x">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-shield fa-stack-1x text-primary"></i>
-                            </span>
-                                <h4>
-                                    <strong>Service Name</strong>
-                                </h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                                <a href="#" class="btn btn-light">Learn More</a>
+                                <p>Tecnologias altamente escaláveis permitem o armazenamento do histórico de todas as viagens.</p>
                             </div>
                         </div>
                     </div>
@@ -157,49 +158,143 @@
     <!-- Callout -->
     <aside class="callout">
         <div class="text-vertical-center">
-            <h1>Vertically Centered Text</h1>
+            <h1>Sua cidade precisa de SmartFare</h1>
         </div>
     </aside>
 
-    <!-- Portfolio -->
-    <section id="portfolio" class="portfolio">
+	<!-- Data -->
+    <section id="data" class="data bg-primary">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-10 col-lg-offset-1 text-center">
-                    <h2>Our Work</h2>
-                    <hr class="small">
+            <div class="row text-center">
+                <div class="col-lg-10 col-lg-offset-1">
+                    <h2>Dados fornecidos</h2>
+                    <hr class="medium">
                     <div class="row">
-                        <div class="col-md-6">
-                            <div class="portfolio-item">
-                                <a href="#">
-                                    <img class="img-portfolio img-responsive" src="img/portfolio-1.jpg">
-                                </a>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="service-item">
+                                <span class="fa-stack fa-4x">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-map-marker fa-stack-1x text-primary"></i>
+                            </span>
+                                <h4>
+                                    <strong>Geolocalização</strong>
+                                </h4>
+                                <p>Origem e destino do passageiro em uma viagem.</p>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="portfolio-item">
-                                <a href="#">
-                                    <img class="img-portfolio img-responsive" src="img/portfolio-2.jpg">
-                                </a>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="service-item">
+                                <span class="fa-stack fa-4x">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-clock-o fa-stack-1x text-primary"></i>
+                            </span>
+                                <h4>
+                                    <strong>Data e hora</strong>
+                                </h4>
+                                <p>Timestamp do embarque e desembarque do usuário.</p>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="portfolio-item">
-                                <a href="#">
-                                    <img class="img-portfolio img-responsive" src="img/portfolio-3.jpg">
-                                </a>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="service-item">
+                                <span class="fa-stack fa-4x">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-dollar fa-stack-1x text-primary"></i>
+                            </span>
+                                <h4>
+                                    <strong>Tarifa e saldo</strong>
+                                </h4>
+                                <p>Tarifa cobrada e saldo do usuário no instante da viagem.</p>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="portfolio-item">
-                                <a href="#">
-                                    <img class="img-portfolio img-responsive" src="img/portfolio-4.jpg">
-                                </a>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="service-item">
+                                <span class="fa-stack fa-4x">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-tachometer fa-stack-1x text-primary"></i>
+                            </span>
+                                <h4>
+                                    <strong>Distância</strong>
+                                </h4>
+                                <p>Distância percorrida calculada através do odômetro.</p>
                             </div>
                         </div>
                     </div>
                     <!-- /.row (nested) -->
-                    <a href="#" class="btn btn-dark">View More Items</a>
+                </div>
+                <!-- /.col-lg-10 -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+    </section>
+
+    <!-- Team -->
+    <section id="team" class="portfolio">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1 text-center">
+                    <h2>Nosso time</h2>
+                    <hr class="medium">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="portfolio-item">
+                                <a href="#">
+                                    <img class="img-portfolio img-responsive" src="img/diego.jpg">
+                                </a>
+                                <h4>Diego Gabriel Lee</h4>
+	                            <ul class="list-inline">
+			                        <li>
+			                            <a href="#"><i class="fa fa-facebook-square fa-fw fa-2x"></i></a>
+			                        </li>
+			                        <li>
+			                            <a href="#"><i class="fa fa-github fa-fw fa-2x"></i></a>
+			                        </li>
+			                        <li>
+			                            <a href="#"><i class="fa fa-linkedin-square fa-fw fa-2x"></i></a>
+			                        </li>
+			                    </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="portfolio-item">
+                                <a href="#">
+                                    <img class="img-portfolio img-responsive" src="img/diogo.jpg">
+                                </a>
+                                <h4>Diogo Guilherme Garcia de Freitas</h4>
+	                            <ul class="list-inline">
+			                        <li>
+			                            <a href="#"><i class="fa fa-facebook-square fa-fw fa-2x"></i></a>
+			                        </li>
+			                        <li>
+			                            <a href="#"><i class="fa fa-github fa-fw fa-2x"></i></a>
+			                        </li>
+			                        <li>
+			                            <a href="#"><i class="fa fa-linkedin-square fa-fw fa-2x"></i></a>
+			                        </li>
+			                    </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="portfolio-item">
+                                <a href="#">
+                                    <img class="img-portfolio img-responsive" src="img/luis.jpg">
+                                </a>
+                                <h4>Luís Fernando Guerreiro</h4>
+	                            <ul class="list-inline">
+			                        <li>
+			                            <a href="#"><i class="fa fa-facebook-square fa-fw fa-2x"></i></a>
+			                        </li>
+			                        <li>
+			                            <a href="#"><i class="fa fa-github fa-fw fa-2x"></i></a>
+			                        </li>
+			                        <li>
+			                            <a href="#"><i class="fa fa-linkedin-square fa-fw fa-2x"></i></a>
+			                        </li>
+			                    </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.row (nested) -->
                 </div>
                 <!-- /.col-lg-10 -->
             </div>
@@ -213,52 +308,29 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h3>The buttons below are impossible to resist.</h3>
-                    <a href="#" class="btn btn-lg btn-light">Click Me!</a>
-                    <a href="#" class="btn btn-lg btn-dark">Look at Me!</a>
+                    <h3>Acesse já o nosso sistema.</h3>
+                    <!--<a href="#" class="btn btn-lg btn-light">Sou usuário</a>-->
+                    <a href="/admin/trips" class="btn btn-lg btn-dark">Sou administrador</a>
                 </div>
             </div>
         </div>
     </aside>
 
-    <!-- Map -->
-    <section id="contact" class="map">
-        <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A&amp;output=embed"></iframe>
-        <br />
-        <small>
-            <a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A"></a>
-        </small>
-        </iframe>
-    </section>
-
     <!-- Footer -->
-    <footer>
+    <footer id="contact">
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 col-lg-offset-1 text-center">
-                    <h4><strong>Start Bootstrap</strong>
-                    </h4>
-                    <p>3481 Melrose Place
-                        <br>Beverly Hills, CA 90210</p>
+                    <img id="logo" src="img/logo.png">
+                    <h4><strong>SmartFare</strong></h4>
+                    <p>Curitiba, PR, Brasil</p>
                     <ul class="list-unstyled">
-                        <li><i class="fa fa-phone fa-fw"></i> (123) 456-7890</li>
-                        <li><i class="fa fa-envelope-o fa-fw"></i> <a href="mailto:name@example.com">name@example.com</a>
-                        </li>
-                    </ul>
-                    <br>
-                    <ul class="list-inline">
-                        <li>
-                            <a href="#"><i class="fa fa-facebook fa-fw fa-3x"></i></a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-twitter fa-fw fa-3x"></i></a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-dribbble fa-fw fa-3x"></i></a>
+                        <li><i class="fa fa-phone fa-fw"></i> +55 (41) 9827-2100</li>
+                        <li><i class="fa fa-envelope-o fa-fw"></i> <a href="mailto:dggf.93@gmail.com">dggf.93@gmail.com</a>
                         </li>
                     </ul>
                     <hr class="small">
-                    <p class="text-muted">Copyright &copy; Your Website 2014</p>
+                    <p class="text-muted">Copyright &copy; SmartFare 2016</p>
                 </div>
             </div>
         </div>
@@ -326,26 +398,6 @@
             }
         }
     });
-    // Disable Google Maps scrolling
-    // See http://stackoverflow.com/a/25904582/1607849
-    // Disable scroll zooming and bind back the click event
-    var onMapMouseleaveHandler = function(event) {
-        var that = $(this);
-        that.on('click', onMapClickHandler);
-        that.off('mouseleave', onMapMouseleaveHandler);
-        that.find('iframe').css("pointer-events", "none");
-    }
-    var onMapClickHandler = function(event) {
-            var that = $(this);
-            // Disable the click handler until the user leaves the map area
-            that.off('click', onMapClickHandler);
-            // Enable scrolling zoom
-            that.find('iframe').css("pointer-events", "auto");
-            // Handle the mouse leave event
-            that.on('mouseleave', onMapMouseleaveHandler);
-        }
-        // Enable map zooming with mouse scroll when the user clicks the map
-    $('.map').on('click', onMapClickHandler);
     </script>
 
 </body>
