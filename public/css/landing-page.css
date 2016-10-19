@@ -186,7 +186,7 @@ hr.small {
     height: 400px;
     color: #fff;
     opacity: 0.8;
-    background: url(../img/sydnight1.jpg) no-repeat center center scroll;
+    background: url(../img/sydnight1.jpg) no-repeat center 40% scroll;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
@@ -252,10 +252,24 @@ footer {
 
 .bg-primary {
     background-color: #002E85;
+    color: white;
+}
+
+.bg-secondary {
+    background-color: white;
+    color: #002E85;
+}
+
+.bg-secondary > hr {
+    color: #002E85;
 }
 
 .text-primary {
     color: #002E85;
+}
+
+.text-secondary {
+    color: white;
 }
 
 #logo {
@@ -287,4 +301,18 @@ footer {
 
 .portfolio-item {
     display: inline-block;
+}
+
+#userflow {
+    width: 100%;
+    height: auto;
+}
+
+.hr-secondary {
+    border-top: 1px solid #002E85;
+}
+
+.flow {
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
