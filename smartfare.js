@@ -106,20 +106,16 @@ app.use(express.static(__dirname + '/public'));
 		console.log(req.body);
 
 		var tripDoc = new Trip({
-			userId: req.body.userId,
+			timestamp: req.body.timestamp,
 			vehicleId: req.body.vehicleId,
-			fare: req.body.fare,
+			userId: req.body.userId,
+			eventType: req.body.eventType,
 			balance: req.body.balance,
-			distance: req.body.distance,
-			inOdometerMeasure: req.body.inOdometerMeasure,
-			inTimestamp: req.body.inTimestamp,
-			inLatitude: req.body.inLatitude,
-			inLongitude: req.body.inLongitude,
-			outOdometerMeasure: req.body.outOdometerMeasure,
-			outTimestamp: req.body.outTimestamp,
-			outLatitude: req.body.outLatitude,
-			outLongitude: req.body.outLongitude
+			latitude: req.body.latitude,
+			longitude: req.body.longitude
 		});
+
+		console.log(tripDoc);
 
 		tripDoc.save(function(error) {
 			if (error) {
