@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-var tripSchema = {
+var eventSchema = {
 	timestamp: {
 		type: String
 	},
@@ -24,5 +24,5 @@ var tripSchema = {
 	}
 };
 
-module.exports = new mongoose.Schema(tripSchema);
-module.exports.tripSchema = tripSchema;
+module.exports = new mongoose.Schema(eventSchema);
+module.exports.eventSchema = eventSchema;

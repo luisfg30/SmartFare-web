@@ -6,7 +6,7 @@
 var express = require('express');					// Express.js
 var mongoose = require('mongoose');					// mongoose (MongoDB driver)
 var bodyparser = require('body-parser');			// body-parser (parse HTTP request body)
-var tripSchema = require('./db/schemas/trip');
+var eventSchema = require('./db/schemas/event');
 var userSchema = require('./db/schemas/user');
 var vehicleSchema = require('./db/schemas/vehicle');
 
@@ -15,7 +15,7 @@ mongoose.connect('mongodb://smartfare:5m4r7f4r3@ds053216.mlab.com:53216/smartfar
 
 // Creates mongoose models for each schema
 // Parameters are: model name, schema, collection name
-var Trip = mongoose.model('Trip', tripSchema, 'trips');
+var Event = mongoose.model('Event', eventSchema, 'events');
 var User = mongoose.model('User', userSchema, 'users');
 var Vehicle = mongoose.model('Vehicle', vehicleSchema, 'vehicles');
 
@@ -29,7 +29,7 @@ module.exports = function() {
 
 app.use(express.static(__dirname + '/public'));
 
-	// REQUEST HANDLER: Return trips
+	// REQUEST HANDLER: Return events
 	app.get('/api/trips', function(req, res) {
 
 		// Creates mongodb query based on request parameters (located on query string)
@@ -42,7 +42,7 @@ app.use(express.static(__dirname + '/public'));
 
 		// Query the trip database and executes callback function passed
 		// as parameter to send response after the query has been completed
-		Trip.find({}, function(error, docs) {
+		Event.find({}, function(error, docs) {
 			if (error) {
 				console.log(error);
 			}
@@ -105,7 +105,7 @@ app.use(express.static(__dirname + '/public'));
 		console.log('REQUEST BODY: ');
 		console.log(req.body);
 
-		var tripDoc = new Trip({
+		var receivedEvent = new Event({
 			timestamp: req.body.timestamp,
 			vehicleId: req.body.vehicleId,
 			userId: req.body.userId,
@@ -115,15 +115,15 @@ app.use(express.static(__dirname + '/public'));
 			longitude: req.body.longitude
 		});
 
-		console.log(tripDoc);
+		console.log(receivedEvent);
 
-		tripDoc.save(function(error) {
+		receivedEvent.save(function(error) {
 			if (error) {
 				console.log(error);
 				res.send('error');
 			} else {
 				res.send('ok');
-				console.log('Saved trip!');
+				console.log('Saved event!');
 				//res.send("ok");
 			}
 		});
