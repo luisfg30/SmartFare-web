@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "A charging and data collecting system for public transport",
   "engines": {
-    "node": "4.4.5"
+    "node": "8.9.1"
   },
   "main": "index.js",
   "scripts": {
@@ -18,7 +18,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/daiogo/smartfare"
+    "url": "https://github.com/luisfg30/smartfare.git"
   },
   "keywords": [
     "smartfare",

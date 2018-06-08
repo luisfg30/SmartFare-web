@@ -10,6 +10,12 @@ var vehicleSchema = {
 	routeName: {
 		type: String
 	},
+	capacity:{
+		type: Number
+	},
+	onBoardUsers:{
+		type: Number
+	},
 	startDate: {
 		type: Date
 	},

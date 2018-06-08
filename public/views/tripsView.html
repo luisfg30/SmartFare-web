@@ -54,7 +54,7 @@
 			
 					<h1 class="page-header">Painel de Controle</h1>
 
-					<h2 class="sub-header">Viagens</h2>
+					<h2 class="sub-header">Histórico de eventos</h2>
 					
 					<div class="table-responsive">
 
@@ -62,33 +62,25 @@
 						
 							<thead>
 								<tr>
-									<th>ID Usuário</th>
+									<th>Timestamp</th>
 									<th>ID Veículo</th>
-									<th>Geolocalização (embarque)</th>
-									<th>Geolocalização (desembarque)</th>
-									<th>Timestamp (embarque)</th>
-									<th>Timestamp (desembarque)</th>
-									<th>Tarifa</th>
+									<th>ID Usuário</th>
+									<th>Tipo</th>
 									<th>Saldo</th>
-									<th>Distância</th>
-									<th>Medida do odômetro (embarque)</th>
-									<th>Medida do odômetro (desembarque)</th>
+									<th>Latitude</th>
+									<th>Longitude</th>
 								</tr>
 							</thead>
 
 							<tbody ng-controller="tripsTableController">
 								<tr ng-repeat="trip in trips">
-									<td>{{ trip.userId }}</td>
+									<td>{{ trip.timestamp | date: 'dd/MM/yyyy hh:mm:ss' }}</td>
 									<td>{{ trip.vehicleId }}</td>
-									<td>{{ trip.inLatitude }}, {{ trip.inLongitude }}</td>
-									<td>{{ trip.outLatitude }}, {{ trip.outLongitude }}</td>
-									<td>{{ trip.inTimestamp | date: 'dd/MM/yyyy hh:mm:ss' }}</td>
-									<td>{{ trip.outTimestamp | date: 'dd/MM/yyyy hh:mm:ss' }}</td>
-									<td>{{ trip.fare | currency: 'R$' }}</td>
+									<td>{{ trip.userId }}</td>
+									<td>{{ trip.eventType }}</td>
 									<td>{{ trip.balance | currency: 'R$' }}</td>
-									<td>{{ trip.distance | number }}</td>
-									<td>{{ trip.inOdometerMeasure }}</td>
-									<td>{{ trip.outOdometerMeasure }}</td>
+									<td>{{ trip.latitude }}</td>
+									<td>{{ trip.longitude }}</td>
 								</tr>
 							</tbody>
 

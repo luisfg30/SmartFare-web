@@ -6,16 +6,16 @@
 var express = require('express');					// Express.js
 var mongoose = require('mongoose');					// mongoose (MongoDB driver)
 var bodyparser = require('body-parser');			// body-parser (parse HTTP request body)
-var tripSchema = require('./db/schemas/trip');
+var eventSchema = require('./db/schemas/event');
 var userSchema = require('./db/schemas/user');
 var vehicleSchema = require('./db/schemas/vehicle');
 
 // Connects mongoose to mongodb service
-mongoose.connect('mongodb://smartfare:5m4r7f4r3@ds053216.mlab.com:53216/smartfare');
+mongoose.connect('mongodb://smartfare:smart2018@ds155490.mlab.com:55490/smartfare-web');
 
 // Creates mongoose models for each schema
 // Parameters are: model name, schema, collection name
-var Trip = mongoose.model('Trip', tripSchema, 'trips');
+var Event = mongoose.model('Event', eventSchema, 'events');
 var User = mongoose.model('User', userSchema, 'users');
 var Vehicle = mongoose.model('Vehicle', vehicleSchema, 'vehicles');
 
@@ -29,7 +29,7 @@ module.exports = function() {
 
 app.use(express.static(__dirname + '/public'));
 
-	// REQUEST HANDLER: Return trips
+	// REQUEST HANDLER: Return events
 	app.get('/api/trips', function(req, res) {
 
 		// Creates mongodb query based on request parameters (located on query string)
@@ -42,7 +42,7 @@ app.use(express.static(__dirname + '/public'));
 
 		// Query the trip database and executes callback function passed
 		// as parameter to send response after the query has been completed
-		Trip.find({}, function(error, docs) {
+		Event.find({}, function(error, docs) {
 			if (error) {
 				console.log(error);
 			}
@@ -105,47 +105,43 @@ app.use(express.static(__dirname + '/public'));
 		console.log('REQUEST BODY: ');
 		console.log(req.body);
 
-		var tripDoc = new Trip({
-			userId: req.body.userId,
+		var receivedEvent = new Event({
+			timestamp: req.body.timestamp,
 			vehicleId: req.body.vehicleId,
-			fare: req.body.fare,
-			balance: req.body.balance,
-			distance: req.body.distance,
-			inOdometerMeasure: req.body.inOdometerMeasure,
-			inTimestamp: req.body.inTimestamp,
-			inLatitude: req.body.inLatitude,
-			inLongitude: req.body.inLongitude,
-			outOdometerMeasure: req.body.outOdometerMeasure,
-			outTimestamp: req.body.outTimestamp,
-			outLatitude: req.body.outLatitude,
-			outLongitude: req.body.outLongitude
+			userId: req.body.userId,
+			eventType: req.body.eventType,
+			balance: req.body.balance / 100 , // Value in cents
+			latitude: req.body.latitude,
+			longitude: req.body.longitude
 		});
 
-		tripDoc.save(function(error) {
+		console.log(receivedEvent);
+
+		receivedEvent.save(function(error) {
 			if (error) {
 				console.log(error);
 				res.send('error');
 			} else {
 				res.send('ok');
-				console.log('Saved trip!');
+				console.log('Saved event!');
 				//res.send("ok");
 			}
 		});
 
-		// Queries for user to be updated
-		User.findOne( { uid: req.body.userId }, function(error, doc) {
-			if (error) {
-				console.log(error);
-				//res.send("User doesn't exist");
-			} else {
-				console.log(doc);
-				doc.balance = req.body.balance; // Or -= req.body.fare
-				doc.save();
-				console.log('Saved new balance!');
-				//res.send("ok");
-			}
+		// // Queries for user to be updated
+		// User.findOne( { uid: req.body.userId }, function(error, doc) {
+		// 	if (error) {
+		// 		console.log(error);
+		// 		res.send("User doesn't exist");
+		// 	} else {
+		// 		console.log(doc);
+		// 		doc.balance = req.body.balance; // Or -= req.body.fare
+		// 		doc.save();
+		// 		console.log('Saved new balance!');
+		// 		res.send("ok");
+		// 	}
 
-		});	
+		// });	
 
 	});
 
