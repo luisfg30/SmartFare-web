@@ -28,15 +28,15 @@ module.exports = function() {
 	app.use(bodyparser.json());
 
 	convertGPS = function(latLon){
-		console.log(latLon);
+		// console.log(latLon);
 		var number = latLon.split(' ');
 		var tempLatLon = number[0].toString();
 		tempLatLon = tempLatLon.split('.');
-		console.log(tempLatLon[0]);
+		// console.log(tempLatLon[0]);
 		var tempLatLonLastTwo = tempLatLon[0].slice(-2)+'.'+ tempLatLon[1];
 		tempLatLonLastTwo = (Number(tempLatLonLastTwo)*100)/100;
 		var tempLatLonFirst = parseInt(tempLatLon[0].slice(0,-2));
-		console.log(tempLatLonFirst);
+		// console.log(tempLatLonFirst);
 		var initValue = tempLatLonFirst+(tempLatLonLastTwo/60);
 		if(number[1] == 'S' || number[1] == 'W') {
 			initValue = (-1) * initValue;
@@ -120,14 +120,14 @@ app.use(express.static(__dirname + '/public'));
 
 	// REQUEST HANDLER: Update database
 	app.post('/api/update', function(req, res) {
-		console.log('REQUEST BODY: ');
-		console.log(req.body);
+		// console.log('REQUEST BODY: ');
+		// console.log(req.body);
 		
 		var lat = convertGPS(req.body.latitude);
 		var long = convertGPS(req.body.longitude);
 
-		console.log(lat);
-		console.log(long);
+		// console.log(lat);
+		// console.log(long);
 
 		var receivedEvent = new Event({
 			timestamp: req.body.timestamp,
@@ -139,7 +139,7 @@ app.use(express.static(__dirname + '/public'));
 			longitude: long
 		});
 
-		console.log(receivedEvent);
+		// console.log(receivedEvent);
 
 		receivedEvent.save(function(error) {
 			if (error) {
