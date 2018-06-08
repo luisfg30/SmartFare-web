@@ -11,7 +11,7 @@ var userSchema = require('./db/schemas/user');
 var vehicleSchema = require('./db/schemas/vehicle');
 
 // Connects mongoose to mongodb service
-mongoose.connect('mongodb://smartfare:5m4r7f4r3@ds053216.mlab.com:53216/smartfare');
+mongoose.connect('mongodb://smartfare:smart2018@ds155490.mlab.com:55490/smartfare-web');
 
 // Creates mongoose models for each schema
 // Parameters are: model name, schema, collection name
@@ -128,20 +128,20 @@ app.use(express.static(__dirname + '/public'));
 			}
 		});
 
-		// Queries for user to be updated
-		User.findOne( { uid: req.body.userId }, function(error, doc) {
-			if (error) {
-				console.log(error);
-				//res.send("User doesn't exist");
-			} else {
-				console.log(doc);
-				doc.balance = req.body.balance; // Or -= req.body.fare
-				doc.save();
-				console.log('Saved new balance!');
-				//res.send("ok");
-			}
+		// // Queries for user to be updated
+		// User.findOne( { uid: req.body.userId }, function(error, doc) {
+		// 	if (error) {
+		// 		console.log(error);
+		// 		res.send("User doesn't exist");
+		// 	} else {
+		// 		console.log(doc);
+		// 		doc.balance = req.body.balance; // Or -= req.body.fare
+		// 		doc.save();
+		// 		console.log('Saved new balance!');
+		// 		res.send("ok");
+		// 	}
 
-		});	
+		// });	
 
 	});
 
