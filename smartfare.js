@@ -27,6 +27,24 @@ module.exports = function() {
 	// Makes app able to use the body-parser module functionality
 	app.use(bodyparser.json());
 
+	convertGPS = function(latLon){
+		console.log(latLon);
+		var number = latLon.split(' ');
+		var tempLatLon = number[0].toString();
+		tempLatLon = tempLatLon.split('.');
+		console.log(tempLatLon[0]);
+		var tempLatLonLastTwo = tempLatLon[0].slice(-2)+'.'+ tempLatLon[1];
+		tempLatLonLastTwo = (Number(tempLatLonLastTwo)*100)/100;
+		var tempLatLonFirst = parseInt(tempLatLon[0].slice(0,-2));
+		console.log(tempLatLonFirst);
+		var initValue = tempLatLonFirst+(tempLatLonLastTwo/60);
+		if(number[1] == 'S' || number[1] == 'W') {
+			initValue = (-1) * initValue;
+		}
+	
+		return initValue;
+	}
+
 app.use(express.static(__dirname + '/public'));
 
 	// REQUEST HANDLER: Return events
@@ -104,6 +122,12 @@ app.use(express.static(__dirname + '/public'));
 	app.post('/api/update', function(req, res) {
 		console.log('REQUEST BODY: ');
 		console.log(req.body);
+		
+		var lat = convertGPS(req.body.latitude);
+		var long = convertGPS(req.body.longitude);
+
+		console.log(lat);
+		console.log(long);
 
 		var receivedEvent = new Event({
 			timestamp: req.body.timestamp,
@@ -111,8 +135,8 @@ app.use(express.static(__dirname + '/public'));
 			userId: req.body.userId,
 			eventType: req.body.eventType,
 			balance: req.body.balance / 100 , // Value in cents
-			latitude: req.body.latitude,
-			longitude: req.body.longitude
+			latitude: lat,
+			longitude: long
 		});
 
 		console.log(receivedEvent);
