@@ -110,7 +110,7 @@ app.use(express.static(__dirname + '/public'));
 			vehicleId: req.body.vehicleId,
 			userId: req.body.userId,
 			eventType: req.body.eventType,
-			balance: req.body.balance,
+			balance: req.body.balance / 100 , // Value in cents
 			latitude: req.body.latitude,
 			longitude: req.body.longitude
 		});
