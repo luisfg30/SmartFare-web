@@ -11,13 +11,6 @@ var userSchema = {
 	},
 	name: {
 		type: String
-	},
-	email: {
-		type: String,
-		match: /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/
-	},
-	phone: {
-		type: String
 	}
 };
 

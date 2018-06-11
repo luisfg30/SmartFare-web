@@ -38,7 +38,7 @@
 				<div id="navbar" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="/">Home</a></li>
-						<li><a href="/admin/events">Viagens</a></li>
+						<li><a href="/admin/events">Eventos</a></li>
 						<li><a href="/admin/users">Usuários</a></li>
 						<li><a href="/admin/vehicles">Veículos</a></li>
 					</ul>
@@ -64,8 +64,6 @@
 									<th>ID Usuário</th>
 									<th>Nome</th>
 									<th>Saldo</th>
-									<th>Email</th>
-									<th>Telefone</th>
 								</tr>
 							</thead>
 
@@ -74,8 +72,6 @@
 									<td>{{ user.uid }}</td>
 									<td>{{ user.name }}</td>
 									<td>{{ user.balance | currency: 'R$' }}</td>
-									<td>{{ user.email }}</td>
-									<td>{{ user.phone }}</td>
 								</tr>
 							</tbody>
 
