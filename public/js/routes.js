@@ -2,7 +2,7 @@ var smartfare = angular.module('SmartFare', ['ng', 'ngRoute']);
 
 smartfare.config(function($routeProvider) {
     $routeProvider.
-        when('/admin/trips', {
+        when('/admin/events', {
         	templateUrl: 'views/tripsView.html',
             controller: 'tripsTableController'
         }).

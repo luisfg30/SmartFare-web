@@ -38,7 +38,7 @@
 				<div id="navbar" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="/">Home</a></li>
-						<li><a href="/admin/trips">Viagens</a></li>
+						<li><a href="/admin/events">Eventos</a></li>
 						<li><a href="/admin/users">Usuários</a></li>
 						<li><a href="/admin/vehicles">Veículos</a></li>
 					</ul>
@@ -51,7 +51,7 @@
 				
 				<div class="col-sm-12 col-md-12 main">
 			
-					<h1 class="page-header">Painel de Controle</h1>
+					<h1 class="page-header">Dados Registrados</h1>
 
 					<h2 class="sub-header">Veículos</h2>
 					
@@ -64,8 +64,7 @@
 									<th>ID Veículo</th>
 									<th>ID Linha</th>
 									<th>Nome da linha</th>
-									<th>Saída da garagem</th>
-									<th>Entrada da garagem</th>
+									<th>Lotação</th>
 								</tr>
 							</thead>
 
@@ -74,8 +73,7 @@
 									<td>{{ vehicle.vehicleId }}</td>
 									<td>{{ vehicle.routeId }}</td>
 									<td>{{ vehicle.routeName }}</td>
-									<td>{{ vehicle.startDate | date: 'dd/MM/yyyy hh:mm:ss' }}</td>
-									<td>{{ vehicle.endDate | date: 'dd/MM/yyyy hh:mm:ss' }}</td>
+									<td>{{vehicle.onBoardUsers}} / {{vehicle.capacity}}</td>
 								</tr>
 							</tbody>
 

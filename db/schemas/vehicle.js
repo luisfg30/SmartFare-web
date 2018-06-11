@@ -15,12 +15,6 @@ var vehicleSchema = {
 	},
 	onBoardUsers:{
 		type: Number
-	},
-	startDate: {
-		type: Date
-	},
-	endDate: {
-		type: Date
 	}
 };
 

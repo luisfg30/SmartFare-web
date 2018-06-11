@@ -176,7 +176,7 @@ app.use(express.static(__dirname + '/public'));
         res.sendFile('/public/index.html'); // load our public/index.html file
     });
 
-    app.get('/admin/trips', function(req, res) {
+    app.get('/admin/events', function(req, res) {
         res.sendFile(__dirname + '/public/views/tripsView.html');
     });
 
