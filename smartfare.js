@@ -152,6 +152,37 @@ app.use(express.static(__dirname + '/public'));
 			}
 		});
 
+		// Queries for vehicle to update onBoard users
+		Vehicle.findOne( { vehicleId: req.body.vehicleId }, function(error, doc) {
+			if (error) {
+				console.log(error);
+				// res.send("Vehicle doesn't exist");
+			} else {
+				console.log(doc);
+				const userIndex = doc.onBoardUsers.indexOf(req.body.userId);
+				if (req.body.eventType == 0) {
+					// boarding event
+					if(userIndex < 0) {
+						// Add user to vehicle array
+						doc.onBoardUsers.push(req.body.userId);
+						doc.save();
+						console.log('New user onboard');
+					}
+				} else {
+					// offboarding event
+					if (userIndex >= 0) {
+						// Remove user from vehicle array
+						doc.onBoardUsers.splice(userIndex,1);
+						doc.save();
+						console.log('User removed from vehicle');					
+					}
+				}
+				 
+
+
+				// res.send("ok");
+			}
+		});	
 		// // Queries for user to be updated
 		// User.findOne( { uid: req.body.userId }, function(error, doc) {
 		// 	if (error) {
