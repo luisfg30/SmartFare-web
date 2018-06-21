@@ -14,7 +14,7 @@ var vehicleSchema = {
 		type: Number
 	},
 	onBoardUsers:{
-		type: Number
+		type: [Number]
 	}
 };
 
